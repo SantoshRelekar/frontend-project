@@ -63,6 +63,16 @@ steps:
     sudo docker push coitlearningdemo/frontendapp:1.0.2
     displayName: 'Login and push the image to docker hub registry'
 
+- task: KubernetesManifest@0
+  displayName: 'Deploy to GKE'
+  inputs:
+   kubernetesServiceConnection: 'gke-development'
+   action: deploy
+   manifests: |
+        k8s/simple/frontend-deployment.yaml
+        k8s/simple/service-frontend-lb.yaml
+
+
 
 
 
