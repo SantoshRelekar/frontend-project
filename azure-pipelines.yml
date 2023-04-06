@@ -58,6 +58,11 @@ steps:
    docker build -t coitlearningdemo/frontendapp:1.0.2 .
   displayName: 'Build the container image'
 
+- script: |
+    echo $(DOCKER_HUB_PASSWORD) | sudo docker login --username $(DOCKER_HUB_USERNAME) --password-stdin
+    sudo docker push coitlearningdemo/frontendapp:1.0.2
+    displayName: 'Login and push the image to docker hub registry'
+
 
 
 
