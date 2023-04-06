@@ -12,8 +12,8 @@ pool:
 steps:
 
 - script: |
-    apt-get update
-    apt-get install -y npm
+    sudo apt-get update
+    sudo apt-get install -y npm
   displayName: 'npm install using apt'
 
 - script: |
