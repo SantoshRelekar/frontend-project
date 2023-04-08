@@ -54,14 +54,21 @@ steps:
    trivy config k8s
   displayName: 'Scanning kuberenetes manifest'
 
-- script: |
-   docker build -t coitlearningdemo/frontendapp:1.0.2 .
-  displayName: 'Build the container image'
+# - script: |
+#    docker build -t coitlearningdemo/frontendapp:1.0.2 .
+#   displayName: 'Build the container image'
 
-- script: |
-    echo $(DOCKER_HUB_PASSWORD) | sudo docker login --username $(DOCKER_HUB_USERNAME) --password-stdin
-    sudo docker push coitlearningdemo/frontendapp:1.0.2
-  displayName: 'Login and push the image to docker hub registry'
+# - script: |
+#     echo $(DOCKER_HUB_PASSWORD) | sudo docker login --username $(DOCKER_HUB_USERNAME) --password-stdin
+#     sudo docker push coitlearningdemo/frontendapp:1.0.2
+#   displayName: 'Login and push the image to docker hub registry'
+
+- task: Docker@2
+  inputs:
+   containerRegistry: docker-hub
+   command: buildAndPush
+   Dockerfile: 'Dockerfile'
+   tags: coitlearningdemo/frontendapp:1.0.2
 
 - task: KubernetesManifest@0
   displayName: 'Deploy to GKE'
