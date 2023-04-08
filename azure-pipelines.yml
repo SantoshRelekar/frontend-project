@@ -69,7 +69,7 @@ steps:
    repository: coitlearningdemo/frontendapp:1.0.3
    command: buildAndPush
    Dockerfile: 'Dockerfile'
-   tags: coitlearningdemo/frontendapp:1.0.3
+   tags: '1.0.3'
 
 - task: KubernetesManifest@0
   displayName: 'Deploy to GKE'
