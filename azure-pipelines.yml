@@ -68,7 +68,7 @@ steps:
    containerRegistry: docker-hub
    command: buildAndPush
    Dockerfile: 'Dockerfile'
-   tags: coitlearningdemo/frontendapp:1.0.2
+   tags: coitlearningdemo/frontendapp:1.0.3
 
 - task: KubernetesManifest@0
   displayName: 'Deploy to GKE'
