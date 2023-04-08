@@ -66,6 +66,7 @@ steps:
 - task: Docker@2
   inputs:
    containerRegistry: docker-hub
+   repository: coitlearningdemo/frontendapp
    command: buildAndPush
    Dockerfile: 'Dockerfile'
    tags: coitlearningdemo/frontendapp:1.0.3
