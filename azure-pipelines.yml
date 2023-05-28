@@ -78,7 +78,7 @@ steps:
    action: deploy
    manifests: |
         k8s/simple/frontend-deployment.yaml
-        k8s/simple/service-frontend-lb.yaml
+        k8s/simple/service-backend-lb.yaml
 
 
 
