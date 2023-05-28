@@ -14,11 +14,11 @@ steps:
 - script: |
     sudo apt-get update
     sudo apt-get install -y npm
-  displayName: 'npm install using apt'
+  displayName: 'npm install using apt '
 
 - script: |
     npm audit || true
-  displayName: 'check vulneribilities'
+  displayName: 'check vulneribilities for code'
 
 - script: |
     sonar-scanner ./ || true
